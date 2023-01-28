@@ -1,0 +1,6 @@
+@import 'src/_vars';
+
+.content {
+    background-color: lighten($bg-light, 10%);
+    padding: 20px;
+}

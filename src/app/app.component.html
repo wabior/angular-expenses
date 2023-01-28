@@ -1,0 +1,7 @@
+<app-topbar [data]="data" (setSelectedEvent)="setSelected($event)">
+    <app-navigation (setSelectedEvent)="setSelected($event)"></app-navigation>
+</app-topbar>
+
+<main [ngSwitch]="selected">
+    <app-content *ngSwitchCase="1"></app-content>
+</main>

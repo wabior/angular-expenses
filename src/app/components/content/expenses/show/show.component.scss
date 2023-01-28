@@ -1,0 +1,43 @@
+@import 'src/_vars';
+
+
+.table {
+    border: 1px solid black;
+    border-radius: 2px;
+    display: table;
+    box-shadow: 6px 6px 20px 0px rgba(66, 68, 90, 1);
+
+    &-row {
+        display: table-row-group;
+
+        &.table-header:first-of-type {
+            background-color: darken($bg-light, 10%);
+            font-weight: 600;
+        }
+
+        &:nth-child(even) {
+            background-color: lighten($bg-light, 2%);
+        }
+    }
+
+    &-col {
+        display: table-cell;
+        padding: 10px;
+        width: 150px;
+
+        &-price {
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            width: 60px;
+        }
+
+        &-paid {
+            width: 45px;
+
+            &:not(:first-of-type) {
+                text-align: center;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,10 @@
+<div class="nav">
+    <a (click)="selected = index; select(index)"
+        *ngFor="let item of navItems; let index = index"
+        [ngClass]="{'nav-item-selected': index === selected}"
+        class="nav-item"
+        href="#"
+    >
+        {{item}}
+    </a>
+</div>
