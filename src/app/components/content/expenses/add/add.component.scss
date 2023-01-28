@@ -1,0 +1,91 @@
+:host {
+    margin-left: 32px;
+}
+
+.card {
+    padding: 16px;
+    padding-top: 64px;
+    border: 1px solid black;
+    border-radius: 2px;
+    box-shadow: 6px 6px 20px 0px rgba(66, 68, 90, 1);
+    position: relative;
+}
+
+.add {
+    background: #eae0c2 linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+    border-radius: 7px;
+    border: 1px solid #333029;
+    display: inline-block;
+    cursor: pointer;
+    color: #505739;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 26px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffffff;
+}
+
+.add:hover {
+    background: linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
+    background-color: #ccc2a6;
+}
+
+.add:active {
+    position: relative;
+    top: 1px;
+}
+
+
+label {
+    margin-bottom: 16px;
+
+    span {
+        width: 100px;
+    }
+}
+
+$radius: 20px;
+$bg-color: #3498DB;
+$bg-color-active: #2980B9;
+$line-width: 3px;
+$line-color: #ECF0F1;
+
+.close-btn {
+    width: $radius * 2;
+    height: $radius * 2;
+    border-radius: $radius;
+    background-color: $bg-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 16px;
+    top: 12px;
+
+    &:active {
+        background-color: $bg-color-active;
+    }
+
+    &:before, &:after {
+        content: '';
+        width: $radius;
+        height: $line-width;
+        background-color: $line-color;
+        position: absolute;
+    }
+
+    &:before {
+        transform: rotate(45deg);
+    }
+    &:after {
+        transform: rotate(-45deg);
+    }
+}
+
+// for display
+//.close-btn {
+//    position: absolute;
+//    top: calc(50% - #{$radius});
+//    left: calc(50% - #{$radius});
+//}

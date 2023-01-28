@@ -6,3 +6,11 @@ body {
   background-color: $bg-light;
   font-family: sans-serif;
 }
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}

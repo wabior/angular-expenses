@@ -16,12 +16,6 @@ export class MenuService {
     }
 
     getSelected() {
-        return from(
-            this.selectedStream.pipe(startWith(this.selected))
-        );
+        return from(this.selectedStream);
     }
-
-    observable = new Observable(subscriber => {
-        subscriber.next(this.selected);
-    })
 }

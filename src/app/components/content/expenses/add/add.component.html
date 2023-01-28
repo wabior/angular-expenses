@@ -1,0 +1,20 @@
+<div [ngSwitch]="adding">
+    <button *ngSwitchCase="false" (click)="onAdding($event)" class="add">Add expense</button>
+    <form *ngSwitchCase="true" class="d-flex flex-column card">
+        <div class="close-btn"></div>
+        <label for="name" class="d-flex"><span>Name:</span>
+            <input id="name" type="text" [formControl]="name">
+        </label>
+
+        <label for="amount" class="d-flex"><span>Amount:</span>
+            <input id="amount" type="text" [formControl]="amount">
+        </label>
+
+        <label for="paid" class="d-flex"><span>Paid:</span>
+            <input id="paid" type="checkbox" [formControl]="paid">
+        </label>
+        <button type="submit" class="add">Save</button>
+    </form>
+</div>
+
+

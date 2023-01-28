@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
+import {MenuService} from "src/app/services/menu.service";
 
 @Component({
     selector: 'app-navigation',
@@ -6,11 +7,14 @@ import {Component, EventEmitter, Output} from '@angular/core';
     styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
+    constructor(private menu: MenuService) {
+    }
+
     navItems = ['Home', 'Wydatki', 'Podsumowanie'];
-    selected = 0;
-    @Output() setSelectedEvent = new EventEmitter<number>();
+    // selected = this.menu.selected;
+    selected = this.menu.selected;
 
     select(value: number) {
-        this.setSelectedEvent.emit(value);
+        this.menu.setSelected(value);
     }
 }

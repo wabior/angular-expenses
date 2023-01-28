@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {ExpenseService} from "../../../../services/expense.service";
-import {AppComponent} from "../../../../app.component";
 import {MenuService} from "../../../../services/menu.service";
 
 @Component({
@@ -10,11 +9,12 @@ import {MenuService} from "../../../../services/menu.service";
 })
 export class ShowComponent {
 
-    expenses = this.expense.expenses;
-
     constructor(private expense: ExpenseService, private selectedMenu: MenuService) {}
+
+    expenses = this.expense.expenses;
 
     ngOnInit() {
         this.selectedMenu.getSelected().subscribe(selected => console.log('show', selected));
+        console.log('show expenses', this.expenses)
     }
 }
