@@ -1,5 +1,19 @@
+@import 'src/_vars';
 :host {
     margin-left: 32px;
+}
+
+input[type=text], input[type=number] {
+    padding: 4px 8px;
+
+    &.ng-invalid.ng-touched {
+        outline: 2px solid red;
+        border-radius: 3px;
+
+        &:focus {
+            outline: revert;
+        }
+    }
 }
 
 .card {
@@ -24,17 +38,25 @@
     padding: 12px 26px;
     text-decoration: none;
     text-shadow: 0px 1px 0px #ffffff;
+
+    &:hover:enabled {
+        background: linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
+        background-color: #ccc2a6;
+    }
+
+    &:active:enabled {
+        position: relative;
+        top: 1px;
+    }
+
+    &:disabled {
+        border: 1px solid transparent;
+        cursor: not-allowed;
+        color: $bg-light;
+    }
 }
 
-.add:hover {
-    background: linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
-    background-color: #ccc2a6;
-}
 
-.add:active {
-    position: relative;
-    top: 1px;
-}
 
 
 label {
@@ -45,9 +67,9 @@ label {
     }
 }
 
-$radius: 20px;
-$bg-color: #3498DB;
-$bg-color-active: #2980B9;
+$radius: 16px;
+$bg-color: darken($bg-light, 20%);
+$bg-color-active: darken($bg-color, 20%);
 $line-width: 3px;
 $line-color: #ECF0F1;
 
@@ -63,8 +85,9 @@ $line-color: #ECF0F1;
     right: 16px;
     top: 12px;
 
-    &:active {
+    &:active, &:hover {
         background-color: $bg-color-active;
+        cursor: pointer;
     }
 
     &:before, &:after {

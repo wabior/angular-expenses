@@ -1,19 +1,22 @@
 <div [ngSwitch]="adding">
-    <button *ngSwitchCase="false" (click)="onAdding($event)" class="add">Add expense</button>
-    <form *ngSwitchCase="true" class="d-flex flex-column card">
-        <div class="close-btn"></div>
+    <button *ngSwitchCase="false" (click)="onAdding(true)" class="add">Add expense</button>
+    <form *ngSwitchCase="true" [formGroup]="expenseForm"
+          (ngSubmit)="onSubmit()" class="d-flex flex-column card">
+        <div class="close-btn" (click)="onAdding(false)"></div>
         <label for="name" class="d-flex"><span>Name:</span>
-            <input id="name" type="text" [formControl]="name">
+            <input id="name" type="text" formControlName="name">
         </label>
-
-        <label for="amount" class="d-flex"><span>Amount:</span>
-            <input id="amount" type="text" [formControl]="amount">
+        <label for="amount" class="d-flex"><span>Price:</span>
+            <input id="amount" type="number" formControlName="price">
         </label>
 
         <label for="paid" class="d-flex"><span>Paid:</span>
-            <input id="paid" type="checkbox" [formControl]="paid">
+            <input id="paid" type="checkbox" formControlName="paid">
         </label>
-        <button type="submit" class="add">Save</button>
+        <button type="submit"
+            class="add"
+            [disabled]="name && expenseForm.invalid"
+        >Save</button>
     </form>
 </div>
 

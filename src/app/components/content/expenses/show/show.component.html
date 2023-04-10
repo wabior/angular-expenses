@@ -5,9 +5,13 @@
         <div class="table-col table-col-price">Amount</div>
         <div class="table-col table-col-paid">Paid</div>
     </div>
-    <div *ngFor="let expense of expenses" class="table-row">
+    <div *ngFor="let expense of expenses;" class="table-row">
         <div class="table-col">{{expense.name}} </div>
         <div class="table-col table-col-price">{{expense.price}} </div>
-        <div class="table-col table-col-paid"><input [checked]="expense.paid" type="checkbox"></div>
+        <label for="checkbox-paid-{{expense.id}}" class="hover">
+            <div class="table-col table-col-paid">
+                <input [checked]="expense.paid" id="checkbox-paid-{{expense.id}}" type="checkbox">
+            </div>
+        </label>
     </div>
 </div>
