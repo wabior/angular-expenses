@@ -10,7 +10,7 @@ export class ExpenseService {
     constructor() {
     }
 
-    expenses: Expense[] = [
+    private expenses: Expense[] = [
         {
             price: 109,
             name: 'internet Netia',
@@ -30,7 +30,13 @@ export class ExpenseService {
 
     add(expense: ExpenseDto | Expense) {
         this.expenses.push(expense);
-        console.log(this.expenses)
+        console.log('expense service: ', this.expenses)
     }
+
+    get() {
+        return this.expenses;
+    };
+
+
 
 }

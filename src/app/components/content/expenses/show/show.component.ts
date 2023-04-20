@@ -11,7 +11,7 @@ export class ShowComponent {
 
     constructor(private expense: ExpenseService, private selectedMenu: MenuService) {}
 
-    expenses = this.expense.expenses;
+    expenses = this.expense.get();
 
     ngOnInit() {
         this.selectedMenu.getSelected().subscribe(selected => console.log('show', selected));

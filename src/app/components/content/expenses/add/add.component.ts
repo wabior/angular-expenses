@@ -11,7 +11,9 @@ import {ExpenseDto} from "../../../../types/expense-dto";
 })
 
 export class AddComponent {
+
     private _adding: boolean = false;
+
     get adding(): boolean {
         return this._adding;
     }
@@ -24,8 +26,10 @@ export class AddComponent {
         this._adding = !this._adding;
     }
 
-    constructor(private expense: ExpenseService) {
-    }
+    constructor(
+        private expense: ExpenseService,
+        private dto: ExpenseDto
+    ) {}
 
     expenseForm = new FormGroup<IExpenseForm>({
         name: new FormControl('', {
@@ -42,7 +46,6 @@ export class AddComponent {
     get name() { return this.expenseForm.get('name'); }
 
     onSubmit() {
-        const expenseDto = new ExpenseDto(this.expenseForm.value);
-        this.expense.add(expenseDto);
+        this.expense.add(this.dto.get(this.expenseForm.value));
     }
 }

@@ -1,15 +1,20 @@
 import {Expense} from "./expense";
+import {Injectable} from "@angular/core";
 
+@Injectable({
+    providedIn: 'root'
+})
 export class ExpenseDto {
-    public name: string;
-    public price: number;
-    public paid: boolean;
+    public name: string = 'unnamed';
+    public price: number = 0;
+    public paid: boolean = false;
 
-    constructor(data: Partial<Expense>) {
+    get(data: Partial<Expense>): ExpenseDto {
         this.name = data.name ?? 'unnamed';
         this.price = data.price ?? 0;
         this.paid = data.paid ?? false;
+        console.log('dto get: ', data)
 
-        console.log('dto', data)
+        return this;
     }
 }
