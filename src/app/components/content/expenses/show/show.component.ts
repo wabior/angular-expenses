@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ExpenseService} from "../../../../services/expense.service";
 import {MenuService} from "../../../../services/menu.service";
+import {Expense} from "../../../../types/expense";
 
 @Component({
   selector: 'app-show',
@@ -11,10 +12,12 @@ export class ShowComponent {
 
     constructor(private expense: ExpenseService, private selectedMenu: MenuService) {}
 
-    expenses = this.expense.get();
+    expenses: Expense[] | undefined;
 
     ngOnInit() {
-        this.selectedMenu.getSelected().subscribe(selected => console.log('show', selected));
-        console.log('show expenses', this.expenses)
+        this.selectedMenu.getSelected().subscribe();
+        this.expense.getFromApi().subscribe(data => {
+            this.expenses = [ ...data ];
+        });
     }
 }

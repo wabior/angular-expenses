@@ -8,6 +8,8 @@ import {ContentComponent} from './components/content/content.component';
 import {ShowComponent} from './components/content/expenses/show/show.component';
 import {AddComponent} from './components/content/expenses/add/add.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {ApiService} from "./services/api.service";
 
 @NgModule({
     declarations: [
@@ -20,9 +22,10 @@ import {ReactiveFormsModule} from "@angular/forms";
     ],
     imports: [
         BrowserModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
     ],
-    providers: [],
+    providers: [ApiService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

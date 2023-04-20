@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Expense, IExpenseForm} from "../types/expense";
 import {ExpenseDto} from "../types/expense-dto";
+import {ApiService} from "./api.service";
 
 @Injectable({
     providedIn: 'root'
 })
 export class ExpenseService {
 
-    constructor() {
-    }
+    constructor(private api: ApiService) {}
 
     private expenses: Expense[] = [
         {
@@ -37,6 +37,8 @@ export class ExpenseService {
         return this.expenses;
     };
 
-
+    getFromApi() {
+        return  this.api.get()
+    }
 
 }

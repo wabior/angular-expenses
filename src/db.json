@@ -1,0 +1,22 @@
+{
+    "expenses": [
+        {
+            "id": 1,
+            "price": 109,
+            "name": "internet Netia",
+            "paid": false
+        },
+        {
+            "id": 2,
+            "price": 245,
+            "name": "prąd Tauton",
+            "paid": false
+        },
+        {
+            "id": 3,
+            "price": 85,
+            "name": "telefon Orange",
+            "paid": true
+        }
+    ]
+}
