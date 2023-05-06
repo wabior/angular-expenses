@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {ExpenseService} from "src/app/services/expense.service";
 import {MenuService} from "src/app/services/menu.service";
 import {Expense} from "src/app/types/expense";
+import {ExpenseApiService} from "../../../../services/expense.api.service";
 
 @Component({
     selector: 'app-show',
@@ -19,15 +20,10 @@ export class ShowComponent {
 
     private _expenses: Expense[] | undefined;
 
-    constructor(
-        private expense: ExpenseService,
-        private selectedMenu: MenuService,
-    ) {
-    }
+    constructor(private expenseService: ExpenseApiService) {}
 
     ngOnInit() {
-        this.selectedMenu.getSelected().subscribe();
-        this.expense.get().subscribe(data => this.expenses = data);
+        this.expenseService.get().subscribe(data => this.expenses = data);
     }
 
 }

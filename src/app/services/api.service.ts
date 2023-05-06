@@ -14,4 +14,9 @@ export class ApiService {
     get() {
         return this.http.get<Expense[]>(this.apiUrl);
     }
+
+    create(data: any) {
+        console.log('Api service: ', data);
+        return this.http.post(this.apiUrl, data);
+    }
 }
