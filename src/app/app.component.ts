@@ -7,11 +7,13 @@ import {MenuService} from "./services/menu.service";
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+    protected selected: any = 1;
+
     constructor(private menu: MenuService) {
         this.menu.getSelected().subscribe(selected => {
             return this.selected = selected;
         })
     }
 
-    selected: any = 1;
 }

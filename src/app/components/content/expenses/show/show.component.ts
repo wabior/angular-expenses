@@ -1,23 +1,33 @@
-import { Component } from '@angular/core';
-import {ExpenseService} from "../../../../services/expense.service";
-import {MenuService} from "../../../../services/menu.service";
-import {Expense} from "../../../../types/expense";
+import {Component} from '@angular/core';
+import {ExpenseService} from "src/app/services/expense.service";
+import {MenuService} from "src/app/services/menu.service";
+import {Expense} from "src/app/types/expense";
 
 @Component({
-  selector: 'app-show',
-  templateUrl: './show.component.html',
-  styleUrls: ['./show.component.scss']
+    selector: 'app-show',
+    templateUrl: './show.component.html',
+    styleUrls: ['./show.component.scss']
 })
 export class ShowComponent {
+    set expenses(value: Expense[] | undefined) {
+        this._expenses = value;
+    }
 
-    constructor(private expense: ExpenseService, private selectedMenu: MenuService) {}
+    get expenses(): Expense[] | undefined {
+        return this._expenses;
+    }
 
-    expenses: Expense[] | undefined;
+    private _expenses: Expense[] | undefined;
+
+    constructor(
+        private expense: ExpenseService,
+        private selectedMenu: MenuService,
+    ) {
+    }
 
     ngOnInit() {
         this.selectedMenu.getSelected().subscribe();
-        this.expense.getFromApi().subscribe(data => {
-            this.expenses = [ ...data ];
-        });
+        this.expense.get().subscribe(data => this.expenses = data);
     }
+
 }

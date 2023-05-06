@@ -10,6 +10,9 @@ import {AddComponent} from './components/content/expenses/add/add.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {ApiService} from "./services/api.service";
+import {ExpenseService} from "./services/expense.service";
+import {ExpenseLocalService} from "./services/expense.local.service";
+import {ExpenseApiService} from "./services/expense.api.service";
 
 @NgModule({
     declarations: [
@@ -25,7 +28,10 @@ import {ApiService} from "./services/api.service";
         ReactiveFormsModule,
         HttpClientModule
     ],
-    providers: [ApiService],
+    providers: [
+        // ApiService
+        { provide: ExpenseService, useClass: ExpenseApiService}
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

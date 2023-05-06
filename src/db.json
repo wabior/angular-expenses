@@ -17,6 +17,12 @@
             "price": 85,
             "name": "telefon Orange",
             "paid": true
+        },
+        {
+            "id": 4,
+            "price": 89,
+            "name": "Neostrada",
+            "paid": true
         }
     ]
 }

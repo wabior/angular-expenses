@@ -1,7 +1,9 @@
 <app-topbar>
     <app-navigation></app-navigation>
 </app-topbar>
+
 <h1>selected {{selected}}</h1>
+
 <main [ngSwitch]="selected">
     <app-content *ngSwitchCase="1"></app-content>
 </main>

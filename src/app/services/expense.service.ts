@@ -34,10 +34,6 @@ export class ExpenseService {
     }
 
     get() {
-        return this.expenses;
-    };
-
-    getFromApi() {
         return  this.api.get()
     }
 
