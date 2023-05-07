@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ExpenseService} from "../../../../services/expense.service";
 import {IExpenseForm} from "../../../../types/expense";
 import {ExpenseDto} from "../../../../types/expense-dto";
+import {ExpenseApiService} from "../../../../services/expense.api.service";
 
 @Component({
     selector: 'app-add',
@@ -27,7 +28,7 @@ export class AddComponent {
     }
 
     constructor(
-        private expense: ExpenseService,
+        private expense: ExpenseApiService,
         private dto: ExpenseDto
     ) {}
 

@@ -11,7 +11,6 @@ export class NavigationComponent {
     }
 
     navItems = ['Home', 'Wydatki', 'Podsumowanie'];
-    // selected = this.menu.selected;
     selected = this.menu.selected;
 
     select(value: number) {

@@ -30,7 +30,7 @@ import {ExpenseApiService} from "./services/expense.api.service";
     ],
     providers: [
         // ApiService
-        { provide: ExpenseService, useClass: ExpenseApiService}
+        { provide: ExpenseService, useClass: ExpenseApiService }
     ],
     bootstrap: [AppComponent]
 })

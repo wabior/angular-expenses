@@ -2,13 +2,17 @@ import {Injectable} from '@angular/core';
 import {Expense, IExpenseForm} from "../types/expense";
 import {ExpenseDto} from "../types/expense-dto";
 import {ApiService} from "./api.service";
+import {Subject} from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
 export class ExpenseService {
+    expensesStream = new Subject();
 
-    constructor(private api: ApiService) {}
+    constructor(private api: ApiService) {
+        console.log('ExpenseService')
+    }
 
     private expenses: Expense[] = [
         {
@@ -33,8 +37,8 @@ export class ExpenseService {
         console.log('expense service: ', this.expenses)
     }
 
-    get() {
-        return  this.api.get()
+    public get() {
+        return this.api.get()
     }
 
 }
