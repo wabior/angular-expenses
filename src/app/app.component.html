@@ -1,9 +1,13 @@
-<app-topbar>
-    <app-navigation></app-navigation>
-</app-topbar>
+<div class="container">
+    <div class="row">
+        <app-topbar>
+            <app-navigation></app-navigation>
+        </app-topbar>
 
-<h1>selected {{selected}}</h1>
+        <h1>selected {{selected}}</h1>
 
-<main [ngSwitch]="selected">
-    <app-content *ngSwitchCase="1"></app-content>
-</main>
+        <main [ngSwitch]="selected">
+            <app-content *ngSwitchCase="1"></app-content>
+        </main>
+    </div>
+</div>
